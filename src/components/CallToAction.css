@@ -1,0 +1,85 @@
+/* CallToAction.css */
+.call-to-action-container {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .call-to-action-image {
+    background-image: url('https://placehold.co/200x400');
+    /* Replace with your actual image path */
+  }
+  
+  .call-to-action-phone-image {
+    background-image: url('https://placehold.co/180x360');
+    /* Replace with your actual image path */
+  }
+  
+  .call-to-action-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .call-to-action-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .call-to-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .primary-button {
+    background-color: #0066ff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .primary-button:hover {
+    background-color: #0055d4;
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    color: #0066ff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: 2px solid #0066ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .secondary-button:hover {
+    background-color: rgba(0, 102, 255, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .call-to-action-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .call-to-action-heading {
+      font-size: 2rem;
+    }
+  }
