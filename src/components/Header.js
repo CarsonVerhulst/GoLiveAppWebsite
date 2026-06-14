@@ -46,7 +46,7 @@ const Header = () => {
             <li><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a></li>
             <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
             <li className="cta-nav">
-              <a href="https://apps.apple.com" className="download-btn-nav">Download</a>
+              <a href="https://apps.apple.com/us/app/golive-go-live-simulator/id6504121037" className="download-btn-nav">Download</a>
             </li>
           </ul>
         </nav>

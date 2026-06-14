@@ -106,6 +106,47 @@ body {
   box-shadow: 0 7px 20px rgba(255, 0, 0, 0.4), 0 7px 20px rgba(0, 0, 255, 0.4);
 }
 
+/* Google Play button (hero) — white pill to pop on the black background */
+.download-btn.play {
+  background: #ffffff;
+  color: #111111;
+}
+.download-btn.play:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(255, 255, 255, 0.25);
+}
+
+/* Store-badge buttons (CTA section) */
+.app-store-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.app-store-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(255, 255, 255, 0.2);
+}
+.app-store-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-direction: row-reverse;
+}
+.app-store-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+.app-store-text span { font-size: 0.72rem; opacity: 0.8; }
+.app-store-text strong { font-size: 1.15rem; font-weight: 700; }
+.app-store-icon { display: flex; }
+
 .learn-more-btn {
   padding: 14px 28px;
   border-radius: 30px;

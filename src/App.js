@@ -30,6 +30,7 @@ function App() {
                 <h1>Experience the <span className="gradient-text">Thrill</span> of Going Live</h1>
                 <div className="cta-buttons">
                   <a href="https://apps.apple.com/us/app/golive-go-live-simulator/id6504121037" className="download-btn primary">Download on App Store</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.golivesimulator.app" className="download-btn play">Get it on Google Play</a>
                   <a href="#features" className="learn-more-btn">Learn More</a>
                 </div>
               </div>
