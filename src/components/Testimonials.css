@@ -1,164 +1,44 @@
-.testimonials-section {
-    background-color: var(--background);
-    position: relative;
-  }
-  
-  .testimonials-carousel {
-    max-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  }
-  
-  .testimonials-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-  
-  .testimonial-card {
-    flex: 0 0 100%;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(30, 30, 30, 0.8));
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-    z-index: 1;
-  }
-  
-  .quote-icon {
-    font-size: 5rem;
-    line-height: 1;
-    height: 40px;
-    color: var(--accent-gold);
-    opacity: 0.5;
-    font-family: serif;
-    margin-bottom: 10px;
-  }
-  
-  .testimonial-quote {
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 30px;
-  }
-  
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-  }
-  
-  .author-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-    border: 2px solid var(--accent-gold);
-  }
-  
-  .author-info h4 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    background: linear-gradient(135deg, var(--text-color), var(--accent-gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .author-info p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .testimonial-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 10px;
-  }
-  
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .dot.active {
-    background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
-    transform: scale(1.2);
-  }
-  
-  .app-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 80px;
-    flex-wrap: wrap;
-  }
-  
-  .stat-item {
-    text-align: center;
-    padding: 20px;
-    min-width: 200px;
-  }
-  
-  .stat-number {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    background: linear-gradient(135deg, var(--accent-red), var(--accent-blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  
-  .stat-label {
-    font-size: 1.1rem;
-    color: var(--accent-gold);
-  }
-  
-  @media (max-width: 768px) {
-    .testimonial-card {
-      padding: 30px;
-    }
-    
-    .testimonial-quote {
-      font-size: 1rem;
-    }
-    
-    .stat-item {
-      flex: 0 0 50%;
-      min-width: auto;
-      padding: 15px;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .testimonial-card {
-      padding: 20px;
-    }
-    
-    .stat-item {
-      flex: 0 0 100%;
-    }
-  }
+.testimonials-section { position: relative; }
+
+.chat-wall {
+  columns: 3;
+  column-gap: 20px;
+}
+.chat-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  padding: 22px 22px 24px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.chat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 46, 134, 0.35);
+  box-shadow: 0 18px 44px -22px var(--glow-pink);
+}
+
+.chat-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1rem; color: #fff;
+  font-family: var(--font-display);
+}
+.tint-a .chat-avatar { background: linear-gradient(135deg, #FF2E86, #FF5E78); }
+.tint-b .chat-avatar { background: linear-gradient(135deg, #9D4EFF, #FF4FC3); }
+.tint-c .chat-avatar { background: linear-gradient(135deg, #FF5E78, #9D4EFF); }
+.tint-d .chat-avatar { background: linear-gradient(135deg, #FF4FC3, #FF2E86); }
+.tint-e .chat-avatar { background: linear-gradient(135deg, #9D4EFF, #FF5E78); }
+.tint-f .chat-avatar { background: linear-gradient(135deg, #FF2E86, #9D4EFF); }
+
+.chat-id { display: flex; flex-direction: column; line-height: 1.2; }
+.chat-name { font-weight: 600; font-size: 0.98rem; }
+.chat-handle { font-size: 0.82rem; color: var(--ink-faint); }
+.chat-stars { margin-left: auto; color: #FFC93C; font-size: 0.78rem; letter-spacing: 1px; }
+
+.chat-text { color: var(--ink-soft); line-height: 1.55; font-size: 1.0rem; }
+
+@media (max-width: 860px) { .chat-wall { columns: 2; } }
+@media (max-width: 560px) { .chat-wall { columns: 1; } }
