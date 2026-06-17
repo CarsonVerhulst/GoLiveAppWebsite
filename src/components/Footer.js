@@ -44,8 +44,8 @@ const Footer = () => {
               <h3>Company</h3>
               <ul>
                 <li><a href="mailto:creators@golivesimulator.com">Contact</a></li>
-                <li><a href="#privacy">Privacy</a></li>
-                <li><a href="#terms">Terms</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms</a></li>
               </ul>
             </div>
           </div>

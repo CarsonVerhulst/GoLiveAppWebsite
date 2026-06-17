@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/r/:creator", "destination": "/api/redirect?creator=:creator" }
   ]
