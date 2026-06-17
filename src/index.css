@@ -1,75 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap');
 
 :root {
-  --background: #000000;
-  --backgroundHeadFoot: #000000;
-  --card-background: #000000;
-  --text-color: #FFFFFF;
-  --accent-red: #FF0000;
-  --accent-blue: #0000FF;
-  --accent-purple: #800080;
-  --accent-gold: #A57E22;
+  /* warm, purple-tinted near-black — never flat #000 */
+  --bg: #09060F;
+  --bg-soft: #0F0A1A;
+  --surface: #150F22;
+  --surface-2: #1D1633;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
+
+  --ink: #FFFFFF;
+  --ink-soft: rgba(255, 255, 255, 0.66);
+  --ink-faint: rgba(255, 255, 255, 0.42);
+
+  --pink: #FF2E86;
+  --magenta: #FF4FC3;
+  --purple: #9D4EFF;
+  --coral: #FF5E78;
+
+  --grad: linear-gradient(115deg, #FF2E86 0%, #9D4EFF 100%);
+  --grad-hot: linear-gradient(115deg, #FF5E78 0%, #FF2E86 48%, #9D4EFF 100%);
+  --glow-pink: rgba(255, 46, 134, 0.55);
+  --glow-purple: rgba(157, 78, 255, 0.45);
+
+  --radius: 18px;
+  --radius-lg: 26px;
+  --font-display: 'Clash Display', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background);
-  color: var(--text-color);
+  color: var(--ink);
   overflow-x: hidden;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(820px 560px at 12% -6%, rgba(255, 46, 134, 0.12), transparent 60%),
+    radial-gradient(760px 600px at 102% 6%, rgba(157, 78, 255, 0.12), transparent 55%),
+    radial-gradient(900px 700px at 50% 108%, rgba(157, 78, 255, 0.08), transparent 60%);
+  background-attachment: fixed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+img, video { max-width: 100%; height: auto; display: block; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #111;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--accent-red), var(--accent-blue));
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(var(--accent-blue), var(--accent-red));
-}
-
-::selection {
-  background-color: var(--accent-red);
-  color: var(--text-color);
-}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0c0814; }
+::-webkit-scrollbar-thumb { background: var(--grad); border-radius: 6px; }
+::selection { background-color: var(--pink); color: #fff; }
