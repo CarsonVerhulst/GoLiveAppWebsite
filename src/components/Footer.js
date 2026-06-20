@@ -45,6 +45,7 @@ const Footer = () => {
               <ul>
                 <li><a href="mailto:creators@golivesimulator.com">Contact</a></li>
                 <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/android/account-deletion">Delete account</a></li>
                 <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms</a></li>
               </ul>
             </div>
