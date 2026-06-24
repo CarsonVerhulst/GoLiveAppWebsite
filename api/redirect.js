@@ -17,9 +17,12 @@ const LANDING = "https://golivesimulator.com";
 const BOT_UA =
   /bot|crawler|spider|crawl|facebookexternalhit|slack|twitter|discord|telegram|whatsapp|linkedin|pinterest|embedly|quora|skype|vkshare|redditbot|applebot|bytespider|tiktok|bytedance|headless|phantom|preview|monitor|curl|wget|python-requests|axios|go-http|java\/|okhttp|libwww|httpclient|fetch|scan/i;
 
-// How long (seconds) to treat repeat hits from the same IP+creator as one
-// click. Collapses rapid prefetch/retry bursts and refreshes.
-const DEDUP_TTL = 6 * 60 * 60; // 6 hours
+// Short window (seconds) for collapsing a single device's rapid duplicate
+// hits — prefetch + real nav, or a HEAD/GET double-fire. Deliberately tiny:
+// many real users share one public IP (home routers, carrier CGNAT), so a
+// long window would drop genuine distinct clicks. We also key on the device
+// (User-Agent), not just IP, so different phones behind one IP each count.
+const DEDUP_TTL = 60; // 1 minute
 
 module.exports = async (req, res) => {
   const creator =
@@ -45,12 +48,19 @@ module.exports = async (req, res) => {
     if (isHuman && process.env.KV_REST_API_URL) {
       const { kv } = require("@vercel/kv");
 
-      // First-hit-wins per IP+creator inside the TTL window, so one person
-      // refreshing or a burst of retries only counts once.
+      // First-hit-wins per IP+device+creator inside the TTL window, so a
+      // single device's prefetch/double-fire counts once, but separate
+      // devices behind the same IP each count.
+      const crypto = require("crypto");
       const ipRaw = req.headers["x-forwarded-for"] || "";
       const ip = String(ipRaw).split(",")[0].trim() || "noip";
+      const device = crypto
+        .createHash("sha1")
+        .update(ip + "|" + ua)
+        .digest("hex")
+        .slice(0, 16);
       const firstSeen = await kv.set(
-        `seen:${creator}:${ip}`,
+        `seen:${creator}:${device}`,
         1,
         { ex: DEDUP_TTL, nx: true }
       );
