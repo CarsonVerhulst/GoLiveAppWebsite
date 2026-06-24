@@ -34,7 +34,7 @@
 <div class="wrap">
 
 <h1>Go Live Simulator Privacy Policy (Android)</h1>
-<p class="meta">Effective Date: June 19, 2026 &nbsp;·&nbsp; Last Updated: June 19, 2026 &nbsp;·&nbsp; Applies to the Android app <code>com.golivesimulator.app</code></p>
+<p class="meta">Effective Date: June 19, 2026 &nbsp;·&nbsp; Last Updated: June 24, 2026 &nbsp;·&nbsp; Applies to the Android app <code>com.golivesimulator.app</code></p>
 
 <h2>1. Who We Are</h2>
 <p>Go Live Simulator is operated by <strong>DigiTech Dynamics LLC</strong>, based in Minnesota, United States. We are the data controller for the information described in this policy. You can reach us anytime at <a href="mailto:team@digitechdynamics.com">team@digitechdynamics.com</a>.</p>
@@ -46,7 +46,7 @@
 
 <h3>3.1 Information you give us directly</h3>
 <ul>
-  <li><strong>Account details</strong> — username, age (if you choose to share it), profile picture, bio, and any preferences you set.</li>
+  <li><strong>Account details</strong> — username, age and gender (if you choose to share them), profile picture, bio, and any preferences you set.</li>
   <li><strong>Subscription status</strong> — handled by Google Play Billing and our processor RevenueCat. We do not see your payment-card numbers.</li>
 </ul>
 
@@ -54,38 +54,42 @@
 <ul>
   <li><strong>Device data</strong> — device model, Android version, language, and a Firebase Installation ID.</li>
   <li><strong>Advertising ID (GAID)</strong> — your Google Advertising ID, used for ads, unless you opt out in your device settings.</li>
-  <li><strong>Crash and performance data</strong> — via Firebase Crashlytics and Firebase Performance.</li>
+  <li><strong>Crash and diagnostics data</strong> — via Firebase Crashlytics.</li>
   <li><strong>Product analytics</strong> — events like screen views, button taps, and stream session length via Mixpanel and Firebase Analytics.</li>
 </ul>
 
-<h3>3.3 Information processed when you stream</h3>
-<p>When you start a simulated stream, Go Live sends two things to Google's Gemini API to power the AI audience, periodically while the stream is active:</p>
+<h3>3.3 Information processed when you stream or message</h3>
+<p>To power the simulated AI audience, comments, direct messages, and recaps, Go Live sends data to third-party AI providers that act as our processors:</p>
 <ul>
-  <li>A short audio sample captured from your microphone.</li>
-  <li>A single still camera frame captured from your camera.</li>
-  <li>A short text summary of recent on-screen comments and context.</li>
+  <li><strong>Microphone audio &rarr; Deepgram.</strong> While a stream is active, audio captured from your microphone is streamed to Deepgram, which converts your speech into a text transcript in real time.</li>
+  <li><strong>Text &rarr; Anthropic (Claude) and Google (Gemini).</strong> Text — including the speech transcript above, messages you type, your username and bio, and a short summary of recent on-screen activity — is sent to Anthropic and/or Google to generate the simulated comments, direct-message replies, and stream recaps.</li>
 </ul>
-<p>Audio and camera data are transmitted only while a stream is actively running. When you stop the stream, transmission stops immediately. Go Live does not save the audio or camera frames to your device or to our servers.</p>
+<p>Your <strong>camera</strong> is used only to show a live preview on your own screen. Camera images are <strong>not transmitted to us or to any third party, and are not stored.</strong> Microphone audio is transmitted only while a stream is actively running; when you stop the stream, transmission stops immediately. We do not save your audio, transcripts, or message text to our servers.</p>
 
 <h2>4. Permissions We Request and Why</h2>
 <p>These map to the runtime permissions Go Live requests on Android:</p>
 <table>
   <tr><th>Permission</th><th>What it powers</th></tr>
-  <tr><td>Camera</td><td>Lets the AI audience see and react to you during a simulated stream. Video is processed in real time and not stored.</td></tr>
-  <tr><td>Microphone (Record Audio)</td><td>Lets the AI audience hear and react to what you say. Audio is processed in real time and not stored.</td></tr>
+  <tr><td>Camera</td><td>Shows a live preview of yourself on your own screen during a simulated stream. Camera images stay on your device — they are not transmitted or stored.</td></tr>
+  <tr><td>Microphone (Record Audio)</td><td>Lets the simulated audience react to what you say. Audio is streamed to Deepgram for real-time transcription while you stream, and is not stored.</td></tr>
   <tr><td>Notifications</td><td>Optional. Sends stream reminders and updates. You can disable these in the app or in Android system settings.</td></tr>
   <tr><td>Advertising ID</td><td>Optional. Used to deliver and measure ads via Google AdMob. You can reset or limit it in Android settings.</td></tr>
   <tr><td>Billing</td><td>Lets you purchase a subscription and coin packs through Google Play.</td></tr>
 </table>
 
-<h2>5. Google Gemini AI Disclosure</h2>
-<p>The simulated audience comments in Go Live are generated by <strong>Google's Gemini API</strong>. During an active stream, short audio samples and single camera frames from your device are sent to Google so the AI can respond to what is happening.</p>
-<p>We use the <strong>paid Gemini API tier</strong>. Under Google's paid API terms, <strong>your data is not used to train Google's AI models</strong>. Google may briefly log request data for abuse-detection purposes only. See <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google's Gemini API Additional Terms</a> for the full details.</p>
-<p>AI-generated audience reactions are core to how Go Live works. You can stop transmission at any time by ending your stream. If you do not want to use AI features, do not start a stream.</p>
+<h2>5. AI Provider Disclosure</h2>
+<p>The simulated audience comments, direct messages, and recaps in Go Live are generated by third-party AI services that act as our processors:</p>
+<ul>
+  <li><strong>Google Gemini API</strong> — generates simulated audience comments and guest responses from text input.</li>
+  <li><strong>Anthropic (Claude)</strong> — generates direct-message replies, persona comments, and stream recaps from text input (including your username, bio, and messages you type).</li>
+  <li><strong>Deepgram</strong> — transcribes your microphone audio into text while you stream.</li>
+</ul>
+<p>We use the <strong>paid API tiers</strong> of these services. Under their respective API terms, <strong>your data is not used to train their AI models</strong>. Providers may briefly log request data for abuse-detection purposes only. See <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google's Gemini API Terms</a>, <a href="https://www.anthropic.com/legal/commercial-terms" rel="noopener">Anthropic's Commercial Terms</a>, and <a href="https://deepgram.com/privacy" rel="noopener">Deepgram's Privacy Policy</a> for details.</p>
+<p>AI-generated reactions are core to how Go Live works. You can stop microphone transmission at any time by ending your stream. If you do not want to use AI features, do not start a stream or send messages.</p>
 
 <h2>6. How We Use Your Information</h2>
 <ul>
-  <li>To run the app and generate the AI audience in real time.</li>
+  <li>To run the app and generate the AI audience, messages, and recaps in real time.</li>
   <li>To process and verify your subscription with Google Play and RevenueCat.</li>
   <li>To understand how the app is used, fix crashes, and improve features.</li>
   <li>To deliver and measure ads via Google AdMob.</li>
@@ -94,8 +98,10 @@
 <h2>7. Third-Party Services We Use</h2>
 <table>
   <tr><th>Provider</th><th>Purpose</th><th>What is shared</th></tr>
-  <tr><td><a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google Gemini API</a></td><td>AI audience generation</td><td>Audio sample, single camera frame, text context during active streams</td></tr>
-  <tr><td><a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase</a> (Auth, Analytics, Crashlytics, Performance, Firestore, Installations)</td><td>Sign-in, analytics, crash reporting, profile storage</td><td>Account ID, device data, event analytics, crash logs</td></tr>
+  <tr><td><a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google Gemini API</a></td><td>AI comment / response generation</td><td>Text only — username, audience context, speech transcript during active sessions</td></tr>
+  <tr><td><a href="https://www.anthropic.com/legal/commercial-terms" rel="noopener">Anthropic (Claude)</a></td><td>AI direct messages, persona comments, recaps</td><td>Text only — messages you type, username, bio, stream context</td></tr>
+  <tr><td><a href="https://deepgram.com/privacy" rel="noopener">Deepgram</a></td><td>Speech-to-text transcription</td><td>Microphone audio during active streams</td></tr>
+  <tr><td><a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase</a> (Analytics, Crashlytics, Installations)</td><td>Analytics and crash reporting</td><td>Device data, event analytics, crash logs</td></tr>
   <tr><td><a href="https://mixpanel.com/legal/privacy-policy" rel="noopener">Mixpanel</a></td><td>Product analytics</td><td>Event names, screen views, anonymized user ID</td></tr>
   <tr><td><a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat</a></td><td>Subscription management</td><td>Google Play purchase token, entitlement status</td></tr>
   <tr><td><a href="https://policies.google.com/technologies/ads" rel="noopener">Google AdMob</a></td><td>In-app advertising</td><td>Advertising ID (if not opted out), device data</td></tr>
@@ -107,28 +113,34 @@
   <li>Health, fitness, or medical data.</li>
   <li>Precise GPS or background location.</li>
   <li>Contacts, calendar, or browsing history.</li>
-  <li>Your raw camera or microphone feed for storage (only the real-time samples sent to Gemini as described above).</li>
+  <li>Your camera images — these stay on your device for preview only and are never transmitted or stored.</li>
+  <li>Your raw microphone feed for storage — audio is streamed to Deepgram for transcription in real time and is not retained.</li>
 </ul>
 
 <h2>9. Google Play Data Safety</h2>
 <p>For transparency, here is how Go Live's data practices map to the categories in our Google Play Data safety declaration:</p>
 <h3>Data Collected</h3>
 <ul>
-  <li><strong>Personal identifiers</strong> — account ID / Firebase UID, app preferences.</li>
+  <li><strong>Personal identifiers</strong> — an app-generated user ID, app preferences.</li>
   <li><strong>App activity</strong> — in-app interactions and screen views.</li>
   <li><strong>App info and performance</strong> — crash logs and diagnostics.</li>
   <li><strong>Device or other IDs</strong> — Advertising ID, Firebase Installation ID.</li>
   <li><strong>Financial info</strong> — purchase history (subscription / coin packs).</li>
 </ul>
+<h3>Data Processed but Not Stored by Us</h3>
+<ul>
+  <li><strong>Audio</strong> — microphone audio is sent to Deepgram for real-time transcription during active streams and is not retained by us.</li>
+  <li><strong>Messages and other text</strong> — message text, your username and bio, and stream context are sent to Anthropic and Google to generate AI responses, and are not retained by us.</li>
+</ul>
 <h3>Purposes</h3>
 <ul>
   <li>App functionality, analytics, and advertising.</li>
 </ul>
-<p>Data is encrypted in transit, and you can request deletion at any time (see Section 10).</p>
+<p>Camera images are processed on-device only and are not collected. Data is encrypted in transit, and you can request deletion at any time (see Section 10).</p>
 
 <h2>10. Your Rights and Choices</h2>
 <h3>10.1 Delete your account</h3>
-<p>In the app, go to <strong>Settings &rarr; Delete Account</strong>, or visit our <a href="/android/account-deletion">Account Deletion page</a>. This deletes your Firebase account, RevenueCat customer record, Mixpanel profile, and all on-device data within 30 days. You can also email <a href="mailto:team@digitechdynamics.com">team@digitechdynamics.com</a> to request deletion.</p>
+<p>In the app, go to <strong>Settings &rarr; Delete Account</strong>, or visit our <a href="/android/account-deletion">Account Deletion page</a>. This deletes your RevenueCat customer record, Mixpanel profile, analytics identifiers, and all on-device data within 30 days. You can also email <a href="mailto:team@digitechdynamics.com">team@digitechdynamics.com</a> to request deletion.</p>
 <h3>10.2 Manage your subscription</h3>
 <p>Open the <strong>Google Play Store &rarr; Profile &rarr; Payments &amp; subscriptions &rarr; Subscriptions</strong>.</p>
 <h3>10.3 Opt out of ad personalization</h3>
@@ -139,13 +151,13 @@
 <p>You have the right to know what we collect, to delete it, to correct it, to opt out of any sale or sharing of personal information, and not to be discriminated against for exercising your rights. We do not sell personal information. Some advertising activity may qualify as "sharing" under CPRA; you can opt out by resetting your Advertising ID or by emailing us.</p>
 
 <h2>11. Data Retention</h2>
-<p>Account data and analytics are retained while your account is active. After you delete your account (or request deletion by email), we delete your account record and analytics profile within 30 days, subject to short backup-retention periods that auto-expire. Audio and camera data sent to Gemini during streams is processed in real time and is not retained by us beyond the request.</p>
+<p>Account data and analytics are retained while your account is active. After you delete your account (or request deletion by email), we delete your account record and analytics profile within 30 days, subject to short backup-retention periods that auto-expire. Microphone audio sent to Deepgram, and text sent to Anthropic and Google, during sessions is processed in real time and is not retained by us beyond the request.</p>
 
 <h2>12. Security</h2>
-<p>All network traffic is encrypted using TLS. Authentication tokens are stored using Android's secure storage. We do not store passwords; sign-in is handled through Firebase Authentication.</p>
+<p>All network traffic is encrypted using TLS. Go Live does not require you to create an account or sign in, and we do not collect passwords; your data is associated with an app-generated identifier stored on your device.</p>
 
 <h2>13. International Transfers</h2>
-<p>Our processors (Firebase, RevenueCat, Mixpanel, Google AdMob, Google Gemini API, Google Play) operate primarily in the United States. If you use Go Live from outside the United States, your information will be transferred to and processed in the United States and potentially other countries where these providers operate.</p>
+<p>Our processors (Firebase, RevenueCat, Mixpanel, Google AdMob, Google Gemini API, Anthropic, Deepgram, Google Play) operate primarily in the United States. If you use Go Live from outside the United States, your information will be transferred to and processed in the United States and potentially other countries where these providers operate.</p>
 
 <h2>14. Children's Privacy</h2>
 <p>Go Live is not directed to children. We do not knowingly collect personal information from children under 13 (or under 16 in the EEA/UK). If a parent or guardian believes a child has provided personal information in Go Live, please email <a href="mailto:team@digitechdynamics.com">team@digitechdynamics.com</a> and we will delete it.</p>
